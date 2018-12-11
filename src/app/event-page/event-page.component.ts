@@ -16,24 +16,24 @@ export class EventPageComponent implements OnInit {
 
 }
 
-if (chrome && chrome.runtime && chrome.runtime.onInstalled) {
-  const DOUYU_DOMAIN = 'douyu.com';
-
-  chrome
-    .runtime
-    .onInstalled
-    .addListener(function () {
-      chrome.declarativeContent.onPageChanged
-        .removeRules(undefined, function () {
-          chrome.declarativeContent.onPageChanged
-            .addRules([{
-              conditions: [new chrome.declarativeContent.PageStateMatcher({
-                pageUrl: { hostContains: DOUYU_DOMAIN },
-              })
-              ],
-              actions: [new chrome.declarativeContent.ShowPageAction()]
-            }]);
-        });
-    });
-}
+// if (chrome && chrome.runtime && chrome.runtime.onInstalled) {
+//   const DOUYU_DOMAIN = 'douyu.com';
+//
+//   chrome
+//     .runtime
+//     .onInstalled
+//     .addListener(function () {
+//       chrome.declarativeContent.onPageChanged
+//         .removeRules(undefined, function () {
+//           chrome.declarativeContent.onPageChanged
+//             .addRules([{
+//               conditions: [new chrome.declarativeContent.PageStateMatcher({
+//                 pageUrl: { hostContains: DOUYU_DOMAIN },
+//               })
+//               ],
+//               actions: [new chrome.declarativeContent.ShowPageAction()]
+//             }]);
+//         });
+//     });
+// }
 

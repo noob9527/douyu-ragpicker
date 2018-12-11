@@ -7,23 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopupComponent implements OnInit {
 
+  robbing = false;
+  barrage = '';
+
   constructor() {
   }
 
   ngOnInit() {
-    this.sendMessage();
   }
 
-  sendMessage = () => {
+  _onSwitching() {
+    if (!this.robbing) {
+      if (!this.barrage) return;
+    }
 
+    this.robbing = !this.robbing;
+    this.sendMessage({
+      robbing: this.robbing,
+      barrage: this.barrage
+    });
+  }
+
+  sendMessage = (msg: any) => {
     if (!chrome.tabs) return;
-
     chrome.tabs
       .query({ active: true, currentWindow: true }, (tabs) => {
-        console.log(tabs);
-        chrome.tabs.sendMessage(tabs[0].id, { greeting: 'hello' }, res => {
-          console.log('res:', res);
-        });
+        chrome.tabs.sendMessage(tabs[0].id, msg);
       });
   };
 
