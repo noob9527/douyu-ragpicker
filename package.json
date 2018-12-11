@@ -2,7 +2,7 @@
   "name": "douyu-ragpicker",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+    "start": "ng serve",
     "build": "npm run build-ng && npm run build-chrome",
     "build:prod": "npm run build-ng:prod && npm run build-chrome:prod",
     "build-ng": "ng build",
@@ -10,10 +10,7 @@
     "build-ng:prod": "ng build --prod --aot",
     "build-chrome": "parcel build ./chrome/content-script.ts --no-minify --out-dir dist/douyu-ragpicker",
     "build-chrome:prod": "parcel build ./chrome/content-script.ts --out-dir dist/douyu-ragpicker",
-    "build-chrome:watch": "parcel watch ./chrome/content-script.ts --out-dir dist/douyu-ragpicker",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build-chrome:watch": "parcel watch ./chrome/content-script.ts --out-dir dist/douyu-ragpicker"
   },
   "private": true,
   "dependencies": {
