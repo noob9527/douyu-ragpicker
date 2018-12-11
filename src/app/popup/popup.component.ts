@@ -15,6 +15,9 @@ export class PopupComponent implements OnInit {
   }
 
   sendMessage = () => {
+
+    if (!chrome.tabs) return;
+
     chrome.tabs
       .query({ active: true, currentWindow: true }, (tabs) => {
         console.log(tabs);
