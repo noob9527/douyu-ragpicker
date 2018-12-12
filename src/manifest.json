@@ -1,11 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "Test Extension",
+  "description": "斗鱼助手",
+  "name": "douyu-ragpicker",
   "version": "1.0.0",
   "permissions": [
     "tabs",
     "activeTab",
-    "declarativeContent"
+    "declarativeContent",
+    "storage"
   ],
   "background": {
     "page": "index.html#/event-page",
@@ -13,9 +15,7 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://*/*"
-      ],
+      "matches": ["http://*.douyu.com/*", "https://*.douyu.com/*"],
       "js": [
         "content-script.js"
       ]
@@ -28,8 +28,11 @@
   },
   "page_action": {
     "default_icon": "assets/icon-165.png",
-    "default_title": "Open Popup!",
+    "default_title": "斗鱼助手",
     "default_popup": "index.html#/popup"
   },
+  "web_accessible_resources": [
+    "page-script.js"
+  ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

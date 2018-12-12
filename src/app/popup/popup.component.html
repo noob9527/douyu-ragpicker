@@ -1,21 +1,22 @@
 <div>
-  <nz-input-group [nzSuffix]="suffixIconButton">
+  <nz-input-group nzSearch [nzSuffix]="suffixIconButton">
     <input
       type="text"
       nz-input
-      placeholder="输入口令"
-      [disabled]="robbing"
+      placeholder="刀刀刀刀刀刀刀刀刀"
+      [disabled]="working"
       [(ngModel)]="barrage">
   </nz-input-group>
 
   <ng-template #suffixIconButton>
     <button
       nz-button
+      nzSearch
       nzType="primary"
       [disabled]="!barrage"
-      (click)="_onSwitching()"
-    >
-      <i nz-icon [type]="robbing ? 'stop' : 'caret-right'"></i>
+      (click)="_onSwitching()">
+      <i nz-icon [type]="working ? 'stop' : 'caret-right'"></i>
     </button>
   </ng-template>
+
 </div>
